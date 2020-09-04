@@ -85,11 +85,13 @@ int elect = scan.nextInt();
 
 if(elect == 1){
 System.out.println("** National Flights **");
-for(int e = 0; e<2; e++){
+for(int e = 0; e<4; e++){
 System.out.println("1.  Booking Single Flight ");
-System.out.println("2.  Booking Return Flight ");
-System.out.println("3.  Check In ");
-System.out.println("4.  Cancallation ");
+System.out.println("2.  Single Flight Display ");
+System.out.println("3.  Booking Return Flight ");
+System.out.println("4.  Return flight Display ");s
+System.out.println("5.  Check In ");
+System.out.println("6.  Cancallation ");
 int choice = scan.nextInt();
 
 if(choice == 1){
@@ -133,11 +135,6 @@ travelingTime = LocalTime.of(hour, minute, second);
 System.out.println(travelingTime);
 System.out.println("Enter Seat Number : ");
 String seatNumber = scan.nextLine();
-System.out.println("continent");
-String can = scan.nextLine();
-System.out.println("city");
-String city = scan.nextLine();
-returnTimeZone = ZonedDateTime.of(returnDate, returnTime, ZoneId.of(can + "/" + city));
 
 
 customer.bookingFlight(ticket, name, surname, gender, idNumber, phoneNumber, email, destinationFrom, destinationTo, destinationDate, travelingTime, seatNumber);
@@ -146,18 +143,26 @@ zaq++;
 customer.displaySingle();
 }
 
-if (choice == 3){
+if(choice == 2){
+customer.displaySingle();
+}
+
+if(choice == 4){
+customer.displayReturn();
+}
+
+if (choice == 5){
 System.out.println("Please present your ID Number : ");
 long idNumber = scan.nextLong();
 customer.checkIn(customers, idNumber);
 }
 
 
-if (choice == 4){
+if (choice == 6){
 System.out.println("To cancel enter ID Number : ");
 long idNumber = scan.nextLong();
 customer.cancallation(customers, idNumber);
-}else if (choice == 2){
+}else if (choice == 3){
 
 int zaq = 0;
 flightTicket ticket = new flightTicket();
@@ -219,6 +224,11 @@ travelingTime = LocalTime.of(hour2, minute2, second2);
 System.out.println(travelingTime);
 System.out.println("Enter Return Seat Number : ");
 String returnSeatNumber = scan.nextLine();
+System.out.println("continent");
+String con = scan.nextLine();
+System.out.println("city");
+String citi = scan.nextLine();
+returnTimeZone = ZonedDateTime.of(returnDate, returnTime, ZoneId.of(con + "/" + citi));
 
 customer.bookingFlightReturn(ticket, name, surname, gender, idNumber, phoneNumber, email, destinationFrom, destinationTo, destinationDate, travelingTime, seatNumber, returnFlight, returnTime, returnDate, returnSeatNumber);
 customers  = customer;
@@ -230,7 +240,7 @@ customer.displayReturn();
 
 if(elect == 2){
 System.out.println("** International Flights **");
-for(int f = 0; f<2; f++){
+for(int f = 0; f<4; f++){
 System.out.println("Choose an option ");
 System.out.println("1.  Booking Single Flight ");
 System.out.println("2.  Booking Return Flight ");
@@ -279,6 +289,11 @@ travelingTime = LocalTime.of(hr, min, sec);
 System.out.println(travelingTime);
 System.out.println("Enter Seat Number : ");
 String seatNumber = scan.nextLine();
+System.out.println("Enter scontinent for timezone");
+String con = scan.nextLine();
+System.out.println("Enter city for timezone");
+String city = scan.nextLine();
+returnTimeZone = ZonedDateTime.of(returnDate, returnTime, ZoneId.of(con + "/" + city));
 
 customer.bookingFlightInter(ticket, name, surname, gender, idNumber, phoneNumber, email, destinationFrom, destinationTo, destinationDate, travelingTime, seatNumber);
 customers  = customer;
@@ -348,6 +363,11 @@ returnTime = LocalTime.of(hour, minutes, seconds);
 System.out.println(returnTime);
 System.out.println("Enter Return Seat Number : ");
 String returnSeatNumber = scan.nextLine();
+System.out.println("Enter continent for timezone");
+String cont = scan.nextLine();
+System.out.println("Enter city for timezone");
+String city = scan.nextLine();
+returnTimeZone = ZonedDateTime.of(returnDate, returnTime, ZoneId.of(cont + "/" + city));
 
 customer.bookingFlightReturnInter(ticket, name, surname, gender, idNumber, phoneNumber, email, destinationFrom, destinationTo, destinationDate, travelingTime, seatNumber, returnFlight, returnTime, returnDate, returnSeatNumber);
 customers  = customer;
