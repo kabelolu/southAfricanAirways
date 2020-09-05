@@ -19,8 +19,9 @@ public static void main(String [] args){
 
 Scanner scan = new Scanner(System.in);
 
-Employee  employees = new Employee();
-Customer  customers = new Customer();
+Employee employees = new Employee();
+Customer customers = new Customer();
+Customer [] cust = new Customer[20];
 Customer customer = null;
 LocalDate destinationDate = null;
 LocalTime travelingTime = null;
@@ -89,15 +90,17 @@ for(int e = 0; e<4; e++){
 System.out.println("1.  Booking Single Flight ");
 System.out.println("2.  Single Flight Display ");
 System.out.println("3.  Booking Return Flight ");
-System.out.println("4.  Return flight Display ");s
+System.out.println("4.  Return flight Display ");
 System.out.println("5.  Check In ");
 System.out.println("6.  Cancallation ");
+System.out.println("7.  Exit ");
 int choice = scan.nextInt();
 
 if(choice == 1){
 int zaq = 0;
 flightTicket ticket = new flightTicket();
 System.out.println(ticket);
+cust = new Customer[20];
 customer = new Customer();
 System.out.println("Enter your Name : ");
 scan.nextLine();
@@ -157,6 +160,9 @@ long idNumber = scan.nextLong();
 customer.checkIn(customers, idNumber);
 }
 
+if(choice == 7){
+break;
+}
 
 if (choice == 6){
 System.out.println("To cancel enter ID Number : ");
