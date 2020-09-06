@@ -20,6 +20,7 @@ public static void main(String [] args){
 Scanner scan = new Scanner(System.in);
 
 Employee employees = new Employee();
+Employee [] emplo = new Employee[10]; 
 Customer customers = new Customer();
 Customer [] cust = new Customer[20];
 Customer customer = null;
@@ -37,6 +38,7 @@ System.out.println("2.	Login");
 
 int option = scan.nextInt();
 if (option == 1){
+emplo = new Employee[10];
 Employee employee = new Employee();
 scan.nextLine();
 System.out.println("Please enter Name : ");
@@ -74,10 +76,10 @@ String username = scan.nextLine();
 System.out.println("Enter Password : ");
 String password = scan.nextLine();
 
-for(int c = 0; c<2; c++){
+for(int c = 0; c<3; c++){
 if(username.equals(employees.getUsername()) && password.equals(employees.getPassword())){
 System.out.println("Login Succesfull");
-for(int d = 0; d<2; d++){
+for(int d = 0; d<3; d++){
 System.out.println("** Booking Flight **");
 System.out.println("Choose an option : ");
 System.out.println("1.  National Flight ");
@@ -139,7 +141,6 @@ System.out.println(travelingTime);
 System.out.println("Enter Seat Number : ");
 String seatNumber = scan.nextLine();
 
-
 customer.bookingFlight(ticket, name, surname, gender, idNumber, phoneNumber, email, destinationFrom, destinationTo, destinationDate, travelingTime, seatNumber);
 customers  = customer;
 zaq++;
@@ -173,6 +174,7 @@ customer.cancallation(customers, idNumber);
 int zaq = 0;
 flightTicket ticket = new flightTicket();
 System.out.println(ticket);
+cust = new Customer[20];
 customer = new Customer();
 System.out.println("Enter your Name : ");
 scan.nextLine();
@@ -249,15 +251,19 @@ System.out.println("** International Flights **");
 for(int f = 0; f<4; f++){
 System.out.println("Choose an option ");
 System.out.println("1.  Booking Single Flight ");
-System.out.println("2.  Booking Return Flight ");
-System.out.println("2.  Check In ");
-System.out.println("3.  Cancallation ");  
+System.out.println("2.  Single Flight Display ");
+System.out.println("3.  Booking Return Flight ");
+System.out.println("4.  Return Flight Display ");
+System.out.println("5.  Check In ");
+System.out.println("6.  Cancallation ");  
+System.out.println("7.  Exit ");
 int alt = scan.nextInt();
 
 if(alt == 1){
 int zaq = 0;
 flightTicket ticket = new flightTicket();
 System.out.println(ticket);
+cust = new Customer[20];
 customer = new Customer();
 System.out.println("Enter your Name : ");
 scan.nextLine();
@@ -307,11 +313,11 @@ zaq++;
 customer.displaySingleInter();
 }
 
-if(alt == 2){
-
+if(alt == 3){
 int zaq = 0;
 flightTicket ticket = new flightTicket();
 System.out.println(ticket);
+cust = new Customer[20];
 customer = new Customer();
 System.out.println("Enter your Name : ");
 scan.nextLine();
@@ -381,21 +387,34 @@ zaq++;
 customer.displayReturnInter();
 }
 
-if(alt == 3){
+if(alt == 2){
+customer.displaySingleInter();
+}
+
+if(alt == 4){
+customer.displayReturnInter();
+}
+
+if(alt == 5){
 System.out.println("Please enter your ID Number : ");
 long idNumber = scan.nextLong();
 customer.checkInInter(customers, idNumber);
 }
 
-if(alt == 4){
+if(alt == 6){
 System.out.println("To cancel enter ID Number : ");
 long idNumber = scan.nextLong();
 customer.cancallationInter(customers, idNumber);
 }
 
+if(alt == 7){
+break;
 }
 
 }
+
+}
+
 }
 }else {System.out.println("PLEASE TRY AGAIN : PRESS ENTER");
 }
